@@ -1149,36 +1149,6 @@ warpsw3(){
         fi
     fi
 }
-
-warpsw(){
-    yellow "请选择需要切换WARP账户的WARP客户端:"
-    echo -e " ${GREEN}1.${PLAIN} Wgcf-WARP"
-    echo -e " ${GREEN}2.${PLAIN} WARP-Cli 代理模式 ${RED}(目前仅支持升级WARP+账户)${PLAIN}"
-    echo -e " ${GREEN}3.${PLAIN} WireProxy-WARP 代理模式"
-    read -rp "请选择客户端 [1-3]: " clientInput
-    case "$clientInput" in
-        1 ) warpsw1 ;;
-        2 ) warpsw2 ;;
-        3 ) warpsw3 ;;
-        * ) exit 1 ;;
-    esac
-}
-
-warpnf(){
-    yellow "请选择需要刷NetFilx IP的WARP客户端:"
-    green "1. Wgcf-WARP IPv4模式"
-    green "2. Wgcf-WARP IPv6模式"
-    green "3. WARP-Cli 代理模式"
-    green "4. WireProxy-WARP 代理模式"
-    read -rp "请选择客户端 [1-4]: " clientInput
-    case "$clientInput" in
-        1 ) wget -N --no-check-certificate https://gitlab.com/Dicksoi/warp-script/-/raw/master/wgcf-warp/netfilx4.sh && bash netfilx4.sh ;;
-        2 ) wget -N --no-check-certificate https://gitlab.com/Dicksoi/warp-script/-/raw/master/wgcf-warp/netfilx6.sh && bash netfilx6.sh ;;
-        3 ) wget -N --no-check-certificate https://gitlab.com/Dicksoi/warp-script/-/raw/master/warp-cli/netfilxcli.sh && bash netfilxcli.sh ;;
-        4 ) wget -N --no-check-certificate https://gitlab.com/Dicksoi/warp-script/-/raw/master/wireproxy-warp/netfilx-wireproxy.sh && bash netfilx-wireproxy.sh ;;
-    esac
-}
-
 menu(){
     check_status
     [[ $VPSIP == 0 ]] && menu0
